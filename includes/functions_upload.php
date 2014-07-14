@@ -563,10 +563,12 @@ class fileupload
 	{
 		global $user;
 		$files = array();
+		$rawnames = $_FILES[$form_name]['name'];
 		$isarray = false;
 		unset($_FILES[$form_name]['local_mode']);
 		//we got more than a file
-		if( is_array($_FILES[$form_name])){
+		$isArray = is_array($rawnames);
+		if( $isArray){
 			//rearrange array
 			foreach( $_FILES[$form_name] as $key => $all ){
 				foreach( $all as $i => $val ){
