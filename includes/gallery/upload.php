@@ -83,7 +83,6 @@ class phpbb_gallery_upload
 		}
 		$this->file_count = (int) $file_count;
 		$this->files = $this->upload->form_upload('image_file_' . $this->file_count);
-
 		if(is_array($this->files)){// We got a bunch of files for one input
 			for($i = 0; $i< count($this->files); $i++){
 				$this->file = $this->files[$i];
@@ -290,7 +289,6 @@ class phpbb_gallery_upload
 	*/
 	public function prepare_file()
 	{
-		var_dump('sdsds');
 		// Rename the file, move it to the correct location and set chmod
 		$this->file->clean_filename('unique_ext'/*, $user->data['user_id'] . '_'*/);
 		$this->file->move_file(substr(phpbb_gallery_url::path('upload_noroot'), 0, -1), false, false, CHMOD_ALL);
@@ -345,7 +343,6 @@ class phpbb_gallery_upload
 				return false;
 			}
 		}
-
 		if ($this->file->filesize > (1.2 * phpbb_gallery_config::get('max_filesize')))
 		{
 			global $user;
